@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   ArrowRight,
   BarChart3,
@@ -51,6 +51,31 @@ const stats = [
 ];
 
 function App() {
+  useEffect(() => {
+    const elements = document.querySelectorAll("[data-reveal]");
+
+    if (!("IntersectionObserver" in window)) {
+      elements.forEach((element) => element.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.16, rootMargin: "0px 0px -8% 0px" },
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main>
       <header className="site-header">
@@ -75,7 +100,7 @@ function App() {
       <section className="hero" id="top">
         <img src="/mediabuzznes-hero.png" alt="" className="hero-image" />
         <div className="hero-scrim" />
-        <div className="hero-content">
+        <div className="hero-content" data-reveal>
           <div className="eyebrow">
             <Sparkles size={16} aria-hidden="true" />
             Widoczność firm w internecie
@@ -95,7 +120,7 @@ function App() {
             </a>
           </div>
         </div>
-        <div className="hero-status" aria-label="Zakres obsługi">
+        <div className="hero-status" aria-label="Zakres obsługi" data-reveal>
           <span>WWW</span>
           <span>Social</span>
           <span>SEO</span>
@@ -104,13 +129,13 @@ function App() {
       </section>
 
       <section className="intro band">
-        <div className="section-heading">
+        <div className="section-heading" data-reveal>
           <span className="kicker">Dla firm, które chcą być widoczne</span>
           <h2>
             Internet zacznie pracować <span className="gradient-text">dla Ciebie</span>.
           </h2>
         </div>
-        <div className="intro-copy">
+        <div className="intro-copy" data-reveal>
           <p>
             MediaBuzzness porządkuje wszystkie elementy obecności online. Nie
             zaczynamy od przypadkowych postów ani szablonowej strony. Najpierw
@@ -124,13 +149,13 @@ function App() {
       </section>
 
       <section className="services" id="uslugi">
-        <div className="section-heading centered">
+        <div className="section-heading centered" data-reveal>
           <span className="kicker">Zakres</span>
           <h2>Widocznie. Spójnie. Profesjonalnie.</h2>
         </div>
         <div className="service-grid">
           {services.map((service) => (
-            <article className="service-card" key={service.title}>
+            <article className="service-card" key={service.title} data-reveal>
               <img className="service-mark" src="/brand/mark-color.png" alt="" />
               <div className="icon-box">
                 <service.icon size={24} aria-hidden="true" />
@@ -143,7 +168,7 @@ function App() {
       </section>
 
       <section className="showcase band">
-        <div className="showcase-copy">
+        <div className="showcase-copy" data-reveal>
           <span className="kicker">System zamiast chaosu</span>
           <h2>Dopasujemy strategię dla Twoich potrzeb.</h2>
           <p>
@@ -152,7 +177,7 @@ function App() {
             zbiór przypadkowych decyzji.
           </p>
         </div>
-        <div className="signal-panel" aria-label="Elementy obecności online">
+        <div className="signal-panel" aria-label="Elementy obecności online" data-reveal>
           <div className="signal-row active">
             <MousePointer2 size={18} aria-hidden="true" />
             <span>Strona prowadzi do zapytania</span>
@@ -177,13 +202,13 @@ function App() {
       </section>
 
       <section className="process" id="proces">
-        <div className="section-heading">
+        <div className="section-heading" data-reveal>
           <span className="kicker">Proces</span>
           <h2>Start bez przeciągania i bez marketingowego żargonu.</h2>
         </div>
         <ol className="timeline">
           {steps.map((step, index) => (
-            <li key={step}>
+            <li key={step} data-reveal>
               <span>{String(index + 1).padStart(2, "0")}</span>
               <p>{step}</p>
             </li>
@@ -193,7 +218,7 @@ function App() {
 
       <section className="stats band">
         {stats.map(([value, label]) => (
-          <div className="stat" key={value}>
+          <div className="stat" key={value} data-reveal>
             <strong>{value}</strong>
             <span>{label}</span>
           </div>
@@ -201,7 +226,7 @@ function App() {
       </section>
 
       <section className="contact" id="kontakt">
-        <div>
+        <div data-reveal>
           <span className="kicker">Kontakt</span>
           <h2>Chcesz, żeby firma była lepiej widoczna w internecie?</h2>
           <p>
@@ -209,14 +234,14 @@ function App() {
             albo tylko pomysł. Odpowiemy konkretnie, od czego warto zacząć.
           </p>
         </div>
-        <a className="contact-button" href="mailto:kontakt@mediabuzzness.pl">
+        <a className="contact-button" href="mailto:kontakt@mediabuzzness.pl" data-reveal>
           <Mail size={20} aria-hidden="true" />
           kontakt@mediabuzzness.pl
         </a>
       </section>
 
       <footer className="site-footer">
-        <div className="footer-main">
+        <div className="footer-main" data-reveal>
           <img
             className="footer-logo"
             src="/brand/logo-white.png"
@@ -227,8 +252,7 @@ function App() {
             Twoja firma była widoczna tam, gdzie klient szuka decyzji.
           </p>
         </div>
-        <div className="footer-side">
-          <a href="mailto:kontakt@mediabuzzness.pl">kontakt@mediabuzzness.pl</a>
+        <div className="footer-side" data-reveal>
           <span>Widoczność, która pracuje na Twój biznes.</span>
         </div>
       </footer>
