@@ -114,7 +114,7 @@ function App() {
           />
         </picture>
         <div className="hero-scrim" />
-        <div className="hero-content" data-reveal>
+        <div className="hero-content">
           <div className="eyebrow">
             <Sparkles size={16} aria-hidden="true" />
             Widoczność firm w internecie
@@ -134,7 +134,7 @@ function App() {
             </a>
           </div>
         </div>
-        <div className="hero-status" aria-label="Zakres obsługi" data-reveal>
+        <div className="hero-status" aria-label="Zakres obsługi">
           <span>WWW</span>
           <span>Social</span>
           <span>SEO</span>
