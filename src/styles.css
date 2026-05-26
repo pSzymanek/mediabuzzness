@@ -602,8 +602,10 @@ h3 {
 .service-mark {
   position: absolute;
   right: -18px;
-  bottom: -22px;
-  width: 92px;
+  bottom: -14px;
+  width: 82px;
+  height: 62px;
+  object-fit: contain;
   opacity: 0.04;
   transform: rotate(-8deg);
   transition:
