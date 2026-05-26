@@ -82,8 +82,10 @@ function App() {
         <a className="brand" href="#top" aria-label="MediaBuzzness">
           <img
             className="brand-logo"
-            src="/brand/logo-color-dark.png"
+            src="/optimized/brand/logo-color-dark.webp"
             alt="MediaBuzzness"
+            width="560"
+            height="90"
           />
         </a>
         <nav aria-label="Główna nawigacja">
@@ -98,7 +100,19 @@ function App() {
       </header>
 
       <section className="hero" id="top">
-        <img src="/mediabuzznes-hero.png" alt="" className="hero-image" />
+        <picture className="hero-media">
+          <source srcSet="/optimized/hero.avif" type="image/avif" />
+          <source srcSet="/optimized/hero.webp" type="image/webp" />
+          <img
+            src="/optimized/hero.webp"
+            alt=""
+            className="hero-image"
+            width="1706"
+            height="922"
+            fetchPriority="high"
+            decoding="sync"
+          />
+        </picture>
         <div className="hero-scrim" />
         <div className="hero-content" data-reveal>
           <div className="eyebrow">
@@ -156,7 +170,15 @@ function App() {
         <div className="service-grid">
           {services.map((service) => (
             <article className="service-card" key={service.title} data-reveal>
-              <img className="service-mark" src="/brand/mark-color.png" alt="" />
+              <img
+                className="service-mark"
+                src="/optimized/brand/mark-color.webp"
+                alt=""
+                width="360"
+                height="264"
+                loading="lazy"
+                decoding="async"
+              />
               <div className="icon-box">
                 <service.icon size={24} aria-hidden="true" />
               </div>
@@ -244,8 +266,12 @@ function App() {
         <div className="footer-main" data-reveal>
           <img
             className="footer-logo"
-            src="/brand/logo-white.png"
+            src="/optimized/brand/logo-white.webp"
             alt="MediaBuzzness"
+            width="900"
+            height="149"
+            loading="lazy"
+            decoding="async"
           />
           <p>
             Strony internetowe, social media, SEO i kampanie prowadzone tak, aby
