@@ -601,10 +601,10 @@ h3 {
 
 .service-mark {
   position: absolute;
-  right: -28px;
-  bottom: -34px;
-  width: 150px;
-  opacity: 0.045;
+  right: -18px;
+  bottom: -22px;
+  width: 92px;
+  opacity: 0.04;
   transform: rotate(-8deg);
   transition:
     opacity 220ms ease,
@@ -660,7 +660,7 @@ h3 {
 }
 
 .service-card:hover .service-mark {
-  opacity: 0.09;
+  opacity: 0.075;
   transform: rotate(-4deg) scale(1.04);
 }
 
