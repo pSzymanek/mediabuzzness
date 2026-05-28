@@ -48,7 +48,7 @@ const steps = [
 ];
 
 const stats = [
-  ["01", "Jeden zespół od strony, sociali i treści"],
+  ["1", "Jeden zespół od strony, sociali i treści"],
   ["3", "Trzy kanały: WWW, social media i kampanie"],
   ["100%", "Komunikacji dopasowanej do branży i celu"],
 ];
