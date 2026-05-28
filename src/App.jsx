@@ -49,7 +49,7 @@ const steps = [
 
 const stats = [
   ["01", "Jeden zespół od strony, sociali i treści"],
-  ["3 kanały", "WWW, social media i kampanie"],
+  ["3", "kanały: WWW, social media i kampanie"],
   ["100%", "Komunikacji dopasowanej do branży i celu"],
 ];
 
