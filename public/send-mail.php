@@ -54,7 +54,7 @@ $body = implode("\n", [
 $headers = [
     'MIME-Version: 1.0',
     'Content-Type: text/plain; charset=UTF-8',
-    'From: MediaBuzzness <no-reply@mediabuzzness.pl>',
+    'From: MediaBuzzness <info@mediabuzzness.pl>',
     'Reply-To: ' . $clean($name) . ' <' . $clean($email) . '>',
 ];
 
