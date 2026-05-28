@@ -1173,10 +1173,12 @@ h3 {
 
 .footer-side p {
   max-width: 560px;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: clamp(1rem, 1.45vw, 1.24rem);
-  font-weight: 650;
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(0.78rem, 1vw, 0.96rem);
+  font-weight: 760;
+  line-height: 1.75;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 
 .footer-contact,

@@ -529,7 +529,7 @@ function Footer({ compact = false, navigate }) {
       <div className="footer-side" data-reveal>
         <p>
           Strony internetowe, social media, SEO i kampanie prowadzone tak, aby
-          Twoja firma była widoczna tam, gdzie klient szuka decyzji.
+          Twoja firma była widoczna tam, gdzie znajdzie Cię klient.
         </p>
         <div className="footer-contact">
           <a href="tel:+48512782456">512 782 456</a>
