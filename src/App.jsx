@@ -136,7 +136,7 @@ function App() {
       wasShown = true;
       window.sessionStorage.setItem("mediabuzzness-contact-nudge", "shown");
       setIsContactNudgeVisible(true);
-      hideTimer = window.setTimeout(() => setIsContactNudgeVisible(false), 7200);
+      hideTimer = window.setTimeout(() => setIsContactNudgeVisible(false), 11000);
     };
     const handleScroll = () => {
       if (window.scrollY > 420) {
