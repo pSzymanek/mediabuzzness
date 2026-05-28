@@ -15,6 +15,7 @@ import {
   Send,
   Sparkles,
   Target,
+  X,
 } from "lucide-react";
 
 const services = [
@@ -58,6 +59,10 @@ function App() {
   const isContactPage = path === "/kontakt";
   const isPrivacyPage = path === "/polityka-prywatnosci";
   const isTermsPage = path === "/regulamin";
+  const [isCookieBannerVisible, setIsCookieBannerVisible] = useState(() => {
+    return window.localStorage.getItem("mediabuzzness-cookie-consent") !== "accepted";
+  });
+  const [isContactNudgeVisible, setIsContactNudgeVisible] = useState(false);
 
   useEffect(() => {
     const elements = document.querySelectorAll("[data-reveal]");
@@ -108,6 +113,47 @@ function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const acceptCookies = () => {
+    window.localStorage.setItem("mediabuzzness-cookie-consent", "accepted");
+    setIsCookieBannerVisible(false);
+  };
+
+  const closeContactNudge = () => {
+    window.sessionStorage.setItem("mediabuzzness-contact-nudge", "closed");
+    setIsContactNudgeVisible(false);
+  };
+
+  useEffect(() => {
+    if (isContactPage || window.sessionStorage.getItem("mediabuzzness-contact-nudge")) {
+      setIsContactNudgeVisible(false);
+      return undefined;
+    }
+
+    let wasShown = false;
+    let hideTimer;
+    const showNudge = () => {
+      if (wasShown) return;
+      wasShown = true;
+      window.sessionStorage.setItem("mediabuzzness-contact-nudge", "shown");
+      setIsContactNudgeVisible(true);
+      hideTimer = window.setTimeout(() => setIsContactNudgeVisible(false), 7200);
+    };
+    const handleScroll = () => {
+      if (window.scrollY > 420) {
+        showNudge();
+      }
+    };
+    const showTimer = window.setTimeout(showNudge, 5200);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.clearTimeout(showTimer);
+      window.clearTimeout(hideTimer);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isContactPage, path]);
+
   return (
     <main>
       <header className="site-header">
@@ -126,6 +172,9 @@ function App() {
           />
         </a>
         <nav aria-label="Główna nawigacja">
+          <a href="/" onClick={(event) => navigate(event, "/")}>
+            Home
+          </a>
           <a href="/#uslugi">Usługi</a>
           <a href="/#proces">Proces</a>
           <a
@@ -155,7 +204,91 @@ function App() {
       ) : (
         <HomePage navigate={navigate} />
       )}
+
+      {isCookieBannerVisible ? (
+        <CookieBanner onAccept={acceptCookies} navigate={navigate} />
+      ) : null}
+      <ContactNudge
+        isVisible={isContactNudgeVisible}
+        hasCookieBanner={isCookieBannerVisible}
+        onClose={closeContactNudge}
+        navigate={navigate}
+      />
     </main>
+  );
+}
+
+function CookieBanner({ onAccept, navigate }) {
+  return (
+    <aside className="cookie-banner" aria-label="Informacja o plikach cookies">
+      <img
+        src="/optimized/brand/mark-color.webp"
+        alt=""
+        width="360"
+        height="261"
+        loading="lazy"
+        decoding="async"
+      />
+      <div>
+        <strong>Dbamy o prywatność</strong>
+        <p>
+          Używamy plików cookies do analityki i ulepszania strony. Szczegóły
+          znajdziesz w polityce prywatności.
+        </p>
+      </div>
+      <div className="prompt-actions">
+        <a
+          href="/polityka-prywatnosci"
+          onClick={(event) => navigate(event, "/polityka-prywatnosci")}
+        >
+          Polityka
+        </a>
+        <button type="button" onClick={onAccept}>
+          Akceptuję
+        </button>
+      </div>
+    </aside>
+  );
+}
+
+function ContactNudge({ isVisible, hasCookieBanner, onClose, navigate }) {
+  return (
+    <aside
+      className={`contact-nudge${isVisible ? " is-visible" : ""}${
+        hasCookieBanner ? " above-cookies" : ""
+      }`}
+      aria-hidden={!isVisible}
+      aria-label="Zachęta do kontaktu"
+    >
+      <img
+        src="/optimized/brand/mark-color.webp"
+        alt=""
+        width="360"
+        height="261"
+        loading="lazy"
+        decoding="async"
+      />
+      <div>
+        <strong>Chcesz pokazać się w sieci?</strong>
+        <p>Napisz do nas!</p>
+      </div>
+      <a
+        href="/kontakt"
+        onClick={(event) => navigate(event, "/kontakt")}
+        tabIndex={isVisible ? 0 : -1}
+      >
+        Kontakt
+        <ArrowRight size={15} aria-hidden="true" />
+      </a>
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label="Zamknij"
+        tabIndex={isVisible ? 0 : -1}
+      >
+        <X size={15} aria-hidden="true" />
+      </button>
+    </aside>
   );
 }
 
