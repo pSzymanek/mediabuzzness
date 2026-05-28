@@ -56,6 +56,8 @@ const stats = [
 function App() {
   const [path, setPath] = useState(() => window.location.pathname);
   const isContactPage = path === "/kontakt";
+  const isPrivacyPage = path === "/polityka-prywatnosci";
+  const isTermsPage = path === "/regulamin";
 
   useEffect(() => {
     const elements = document.querySelectorAll("[data-reveal]");
@@ -145,7 +147,11 @@ function App() {
       </header>
 
       {isContactPage ? (
-        <ContactPage />
+        <ContactPage navigate={navigate} />
+      ) : isPrivacyPage ? (
+        <LegalPage type="privacy" navigate={navigate} />
+      ) : isTermsPage ? (
+        <LegalPage type="terms" navigate={navigate} />
       ) : (
         <HomePage navigate={navigate} />
       )}
@@ -335,12 +341,12 @@ function HomePage({ navigate }) {
         </a>
       </section>
 
-      <Footer />
+      <Footer navigate={navigate} />
     </>
   );
 }
 
-function ContactPage() {
+function ContactPage({ navigate }) {
   const handleContactSubmit = (event) => {
     event.preventDefault();
 
@@ -415,12 +421,98 @@ function ContactPage() {
         </div>
       </section>
 
-      <Footer compact />
+      <Footer compact navigate={navigate} />
     </>
   );
 }
 
-function Footer({ compact = false }) {
+function LegalPage({ type, navigate }) {
+  const isPrivacy = type === "privacy";
+
+  return (
+    <>
+      <section className="legal-page">
+        <div className="legal-hero">
+          <span className="kicker">{isPrivacy ? "Prywatność" : "Regulamin"}</span>
+          <h1>{isPrivacy ? "Polityka prywatności" : "Regulamin strony"}</h1>
+          <p>
+            Dokument informacyjny dla użytkowników strony mediabuzzness.pl.
+          </p>
+        </div>
+
+        <div className="legal-content">
+          {isPrivacy ? (
+            <>
+              <h2>Administrator danych</h2>
+              <p>
+                Administratorem danych przekazanych przez formularz kontaktowy
+                oraz wiadomości e-mail jest MediaBuzzness. Kontakt w sprawach
+                prywatności: info@mediabuzzness.pl.
+              </p>
+
+              <h2>Zakres przetwarzania</h2>
+              <p>
+                Przetwarzamy dane podane dobrowolnie w formularzu, w tym imię,
+                adres e-mail, numer telefonu oraz treść wiadomości. Dane są
+                wykorzystywane wyłącznie do odpowiedzi na zapytanie i obsługi
+                kontaktu.
+              </p>
+
+              <h2>Analityka i pliki cookie</h2>
+              <p>
+                Strona może korzystać z Google Analytics w celu mierzenia ruchu,
+                źródeł odwiedzin oraz skuteczności treści. Google Analytics może
+                używać plików cookie lub podobnych technologii. Dane analityczne
+                służą wyłącznie do ulepszania strony i komunikacji.
+              </p>
+
+              <h2>Twoje prawa</h2>
+              <p>
+                Masz prawo dostępu do danych, ich sprostowania, usunięcia,
+                ograniczenia przetwarzania oraz wniesienia sprzeciwu. W tym celu
+                napisz na info@mediabuzzness.pl.
+              </p>
+            </>
+          ) : (
+            <>
+              <h2>Charakter strony</h2>
+              <p>
+                Strona mediabuzzness.pl ma charakter informacyjny i prezentuje
+                zakres usług związanych z obecnością firm w internecie.
+              </p>
+
+              <h2>Kontakt i zapytania</h2>
+              <p>
+                Wysłanie formularza lub wiadomości e-mail nie oznacza zawarcia
+                umowy. Szczegóły współpracy, zakres prac i warunki są ustalane
+                indywidualnie po kontakcie.
+              </p>
+
+              <h2>Treści i materiały</h2>
+              <p>
+                Materiały opublikowane na stronie, w tym teksty, układ i
+                elementy identyfikacji wizualnej, są przeznaczone do prezentacji
+                marki MediaBuzzness i nie powinny być kopiowane bez zgody.
+              </p>
+
+              <h2>Dostępność strony</h2>
+              <p>
+                Dokładamy starań, aby strona działała poprawnie, ale mogą
+                wystąpić przerwy techniczne lub zmiany w treści serwisu.
+              </p>
+            </>
+          )}
+        </div>
+      </section>
+
+      <Footer compact navigate={navigate} />
+    </>
+  );
+}
+
+function Footer({ compact = false, navigate }) {
+  const go = (path) => (event) => navigate?.(event, path);
+
   return (
     <footer className={`site-footer${compact ? " compact-footer" : ""}`}>
       <div className="footer-main" data-reveal>
@@ -433,13 +525,27 @@ function Footer({ compact = false }) {
           loading="lazy"
           decoding="async"
         />
+      </div>
+      <div className="footer-side" data-reveal>
         <p>
           Strony internetowe, social media, SEO i kampanie prowadzone tak, aby
           Twoja firma była widoczna tam, gdzie klient szuka decyzji.
         </p>
-      </div>
-      <div className="footer-side" data-reveal>
-        <span>Widoczność, która pracuje na Twój biznes.</span>
+        <div className="footer-contact">
+          <a href="tel:+48512782456">512 782 456</a>
+          <a href="mailto:info@mediabuzzness.pl">info@mediabuzzness.pl</a>
+        </div>
+        <div className="footer-links" aria-label="Linki prawne">
+          <a href="/regulamin" onClick={go("/regulamin")}>
+            Regulamin
+          </a>
+          <a
+            href="/polityka-prywatnosci"
+            onClick={go("/polityka-prywatnosci")}
+          >
+            Polityka prywatności
+          </a>
+        </div>
       </div>
     </footer>
   );
