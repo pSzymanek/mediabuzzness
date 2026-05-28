@@ -84,8 +84,8 @@ function App() {
             className="brand-logo"
             src="/optimized/brand/logo-color-dark.webp"
             alt="MediaBuzzness"
-            width="560"
-            height="90"
+            width="620"
+            height="89"
           />
         </a>
         <nav aria-label="Główna nawigacja">
@@ -175,7 +175,7 @@ function App() {
                 src="/optimized/brand/mark-color.webp"
                 alt=""
                 width="360"
-                height="264"
+                height="261"
                 loading="lazy"
                 decoding="async"
               />
@@ -266,10 +266,10 @@ function App() {
         <div className="footer-main" data-reveal>
           <img
             className="footer-logo"
-            src="/optimized/brand/logo-white.webp"
+            src="/optimized/brand/logo-white-color-buzz.webp"
             alt="MediaBuzzness"
             width="900"
-            height="149"
+            height="134"
             loading="lazy"
             decoding="async"
           />
