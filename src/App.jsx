@@ -117,10 +117,10 @@ function App() {
         >
           <img
             className="brand-logo"
-            src="/optimized/brand/logo-noslg.webp"
+            src="/optimized/brand/logo-noslg-center.webp"
             alt="MediaBuzzness"
             width="620"
-            height="85"
+            height="103"
           />
         </a>
         <nav aria-label="Główna nawigacja">
