@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/((?!assets|optimized).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
