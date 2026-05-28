@@ -367,10 +367,7 @@ function ContactPage() {
           <h1>
             Porozmawiajmy o widoczności <span>Twojej firmy.</span>
           </h1>
-          <p>
-            Opisz krótko, czego potrzebujesz. Odpowiemy konkretnie i podpowiemy,
-            od czego warto zacząć.
-          </p>
+          <p>Podpowiemy, od czego warto zacząć.</p>
         </div>
 
         <div className="contact-layout">
