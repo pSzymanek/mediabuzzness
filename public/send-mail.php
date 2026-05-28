@@ -35,7 +35,7 @@ $clean = static function (string $value): string {
     return str_replace(["\r", "\n"], ' ', $value);
 };
 
-$to = 'info@mediabuzzness.pl';
+$to = 'kontakt@mediabuzzness.pl';
 $subject = 'Zapytanie ze strony - ' . $clean($name);
 if (function_exists('mb_encode_mimeheader')) {
     $subject = mb_encode_mimeheader($subject, 'UTF-8');
@@ -54,7 +54,7 @@ $body = implode("\n", [
 $headers = [
     'MIME-Version: 1.0',
     'Content-Type: text/plain; charset=UTF-8',
-    'From: MediaBuzzness <info@mediabuzzness.pl>',
+    'From: MediaBuzzness <kontakt@mediabuzzness.pl>',
     'Reply-To: ' . $clean($name) . ' <' . $clean($email) . '>',
 ];
 
@@ -64,7 +64,7 @@ if (!$sent) {
     http_response_code(500);
     echo json_encode([
         'ok' => false,
-        'message' => 'Nie udało się wysłać wiadomości. Napisz bezpośrednio na info@mediabuzzness.pl.',
+        'message' => 'Nie udało się wysłać wiadomości. Napisz bezpośrednio na kontakt@mediabuzzness.pl.',
     ]);
     exit;
 }

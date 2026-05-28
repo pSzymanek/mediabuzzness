@@ -384,7 +384,7 @@ function ContactPage({ navigate }) {
         message:
           error instanceof Error
             ? error.message
-            : "Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz bezpośrednio na info@mediabuzzness.pl.",
+            : "Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz bezpośrednio na kontakt@mediabuzzness.pl.",
       });
     }
   };
@@ -446,7 +446,7 @@ function ContactPage({ navigate }) {
             <div className="contact-detail-card">
               <AtSign size={22} aria-hidden="true" />
               <span>Kontakt</span>
-              <a href="mailto:info@mediabuzzness.pl">info@mediabuzzness.pl</a>
+              <a href="mailto:kontakt@mediabuzzness.pl">kontakt@mediabuzzness.pl</a>
             </div>
             <div className="contact-detail-card">
               <Mail size={22} aria-hidden="true" />
@@ -484,7 +484,7 @@ function LegalPage({ type, navigate }) {
               <p>
                 Administratorem danych przekazanych przez formularz kontaktowy
                 oraz wiadomości e-mail jest MediaBuzzness. Kontakt w sprawach
-                prywatności: info@mediabuzzness.pl.
+                prywatności: kontakt@mediabuzzness.pl.
               </p>
 
               <h2>Zakres przetwarzania</h2>
@@ -507,7 +507,7 @@ function LegalPage({ type, navigate }) {
               <p>
                 Masz prawo dostępu do danych, ich sprostowania, usunięcia,
                 ograniczenia przetwarzania oraz wniesienia sprzeciwu. W tym celu
-                napisz na info@mediabuzzness.pl.
+                napisz na kontakt@mediabuzzness.pl.
               </p>
             </>
           ) : (
@@ -570,7 +570,7 @@ function Footer({ compact = false, navigate }) {
         </p>
         <div className="footer-contact">
           <a href="tel:+48512782456">512 782 456</a>
-          <a href="mailto:info@mediabuzzness.pl">info@mediabuzzness.pl</a>
+          <a href="mailto:kontakt@mediabuzzness.pl">kontakt@mediabuzzness.pl</a>
         </div>
         <div className="footer-links" aria-label="Linki prawne">
           <a href="/regulamin" onClick={go("/regulamin")}>
