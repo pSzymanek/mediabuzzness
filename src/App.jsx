@@ -117,10 +117,10 @@ function App() {
         >
           <img
             className="brand-logo"
-            src="/optimized/brand/logo-color-dark.webp"
+            src="/optimized/brand/logo-noslg.webp"
             alt="MediaBuzzness"
             width="620"
-            height="89"
+            height="85"
           />
         </a>
         <nav aria-label="Główna nawigacja">
@@ -426,10 +426,10 @@ function Footer({ compact = false }) {
       <div className="footer-main" data-reveal>
         <img
           className="footer-logo"
-          src="/optimized/brand/logo-white-color-buzz.webp"
+          src="/optimized/brand/logo-white.webp"
           alt="MediaBuzzness"
           width="900"
-          height="134"
+          height="135"
           loading="lazy"
           decoding="async"
         />
