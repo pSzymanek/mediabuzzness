@@ -347,22 +347,46 @@ function HomePage({ navigate }) {
 }
 
 function ContactPage({ navigate }) {
-  const handleContactSubmit = (event) => {
+  const [contactStatus, setContactStatus] = useState({
+    type: "idle",
+    message: "",
+  });
+
+  const handleContactSubmit = async (event) => {
     event.preventDefault();
 
-    const form = new FormData(event.currentTarget);
-    const name = form.get("name")?.toString().trim() || "Brak imienia";
-    const email = form.get("email")?.toString().trim() || "Brak adresu e-mail";
-    const phone = form.get("phone")?.toString().trim() || "Brak telefonu";
-    const message =
-      form.get("message")?.toString().trim() || "Brak wiadomości";
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
+    setContactStatus({
+      type: "loading",
+      message: "Wysyłamy wiadomość...",
+    });
 
-    const subject = encodeURIComponent(`Zapytanie ze strony - ${name}`);
-    const body = encodeURIComponent(
-      `Imię i nazwisko: ${name}\nE-mail: ${email}\nTelefon: ${phone}\n\nWiadomość:\n${message}`,
-    );
+    try {
+      const response = await fetch("/send-mail.php", {
+        method: "POST",
+        body: form,
+      });
+      const result = await response.json();
 
-    window.location.href = `mailto:info@mediabuzzness.pl?subject=${subject}&body=${body}`;
+      if (!response.ok || !result.ok) {
+        throw new Error(result.message || "Nie udało się wysłać wiadomości.");
+      }
+
+      formElement.reset();
+      setContactStatus({
+        type: "success",
+        message: "Dziękujemy. Wiadomość została wysłana.",
+      });
+    } catch (error) {
+      setContactStatus({
+        type: "error",
+        message:
+          error instanceof Error
+            ? error.message
+            : "Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz bezpośrednio na info@mediabuzzness.pl.",
+      });
+    }
   };
 
   return (
@@ -378,6 +402,10 @@ function ContactPage({ navigate }) {
 
         <div className="contact-layout">
           <form className="contact-form" onSubmit={handleContactSubmit}>
+            <label className="form-trap" aria-hidden="true">
+              Firma
+              <input name="company" type="text" tabIndex="-1" autoComplete="off" />
+            </label>
             <label>
               Imię i nazwisko
               <input name="name" type="text" autoComplete="name" required />
@@ -394,10 +422,19 @@ function ContactPage({ navigate }) {
               Wiadomość
               <textarea name="message" rows="6" required />
             </label>
-            <button className="button primary form-submit" type="submit">
-              Wyślij wiadomość
+            <button
+              className="button primary form-submit"
+              type="submit"
+              disabled={contactStatus.type === "loading"}
+            >
+              {contactStatus.type === "loading" ? "Wysyłanie..." : "Wyślij wiadomość"}
               <Send size={18} aria-hidden="true" />
             </button>
+            {contactStatus.message ? (
+              <p className={`form-status ${contactStatus.type}`}>
+                {contactStatus.message}
+              </p>
+            ) : null}
           </form>
 
           <aside className="contact-details">
@@ -408,7 +445,7 @@ function ContactPage({ navigate }) {
             </div>
             <div className="contact-detail-card">
               <AtSign size={22} aria-hidden="true" />
-              <span>Formularz wysyła na</span>
+              <span>Kontakt</span>
               <a href="mailto:info@mediabuzzness.pl">info@mediabuzzness.pl</a>
             </div>
             <div className="contact-detail-card">

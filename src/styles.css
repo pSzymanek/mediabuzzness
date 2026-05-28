@@ -1037,6 +1037,14 @@ h3 {
   font-weight: 800;
 }
 
+.form-trap {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .contact-form input,
 .contact-form textarea {
   width: 100%;
@@ -1075,6 +1083,26 @@ h3 {
   border: 0;
   cursor: pointer;
   gap: 10px;
+}
+
+.form-submit:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.form-status {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.form-status.success {
+  color: #127a4a;
+}
+
+.form-status.error {
+  color: #b3261e;
 }
 
 .contact-details {
