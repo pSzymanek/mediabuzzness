@@ -719,7 +719,13 @@ function Footer({ compact = false, navigate }) {
           Twoja firma była widoczna tam, gdzie znajdzie Cię klient.
         </p>
         <div className="footer-contact">
-          <a href="tel:+48512782456">512 782 456</a>
+          <a
+            href="https://wa.me/48512782456"
+            target="_blank"
+            rel="noreferrer"
+          >
+            WhatsApp: 512 782 456
+          </a>
           <a href="mailto:kontakt@mediabuzzness.pl">kontakt@mediabuzzness.pl</a>
         </div>
         <div className="footer-links" aria-label="Linki prawne">
