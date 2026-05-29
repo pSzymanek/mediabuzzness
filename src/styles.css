@@ -1320,13 +1320,17 @@ h3 {
 .contact-whatsapp-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  position: relative;
 }
 
 .contact-whatsapp-link img {
+  position: absolute;
+  top: 50%;
+  left: -26px;
   width: 18px;
   height: 18px;
   flex: 0 0 auto;
+  transform: translateY(-50%);
 }
 
 .site-footer {
