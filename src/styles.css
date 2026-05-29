@@ -458,7 +458,7 @@ nav a:hover::after {
   --symbol-size: clamp(34px, 3.4vw, 64px);
   right: 4%;
   bottom: 31%;
-  color: rgba(255, 46, 114, 0.68);
+  color: rgba(39, 182, 255, 0.7);
   animation-name: symbolPulseFloat;
   animation-delay: -7s;
 }
@@ -1884,7 +1884,7 @@ h3 {
     --symbol-mobile-size: clamp(30px, 9vw, 44px);
     right: 9%;
     bottom: 28%;
-    color: rgba(255, 46, 114, 0.58);
+    color: rgba(39, 182, 255, 0.56);
   }
 
   .hero-symbols span:nth-child(5) {
