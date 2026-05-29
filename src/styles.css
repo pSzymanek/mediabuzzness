@@ -512,6 +512,7 @@ nav a:hover::after {
   z-index: 2;
   width: min(760px, 100%);
   padding-bottom: 26px;
+  transform: translateY(clamp(-72px, -6svh, -38px));
 }
 
 .eyebrow,
@@ -1870,6 +1871,7 @@ h3 {
 
   .hero-content {
     width: 100%;
+    transform: translateY(-34px);
   }
 
   .hero p {
