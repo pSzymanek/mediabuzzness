@@ -320,10 +320,11 @@ nav a:hover::after {
   align-items: end;
   overflow: hidden;
   background:
-    radial-gradient(circle at 0% 2%, rgba(223, 40, 201, 0.5), transparent 34%),
-    radial-gradient(circle at 18% 8%, rgba(123, 44, 255, 0.3), transparent 32%),
-    radial-gradient(circle at 88% 84%, rgba(24, 72, 255, 0.48), transparent 34%),
-    radial-gradient(circle at 76% 76%, rgba(223, 40, 201, 0.18), transparent 30%),
+    radial-gradient(circle at 0% 0%, rgba(255, 46, 114, 0.58), transparent 30%),
+    radial-gradient(circle at 9% 9%, rgba(223, 40, 201, 0.46), transparent 32%),
+    radial-gradient(circle at 22% 12%, rgba(123, 44, 255, 0.32), transparent 34%),
+    radial-gradient(circle at 88% 84%, rgba(24, 72, 255, 0.5), transparent 34%),
+    radial-gradient(circle at 76% 76%, rgba(223, 40, 201, 0.24), transparent 30%),
     linear-gradient(120deg, #fff 0%, #fbf8ff 45%, #f7fbff 100%);
 }
 
@@ -347,11 +348,12 @@ nav a:hover::after {
 
 .hero-glow.primary {
   background:
-    radial-gradient(circle at 6% 8%, rgba(223, 40, 201, 0.28), transparent 32%),
-    radial-gradient(circle at 22% 18%, rgba(123, 44, 255, 0.22), transparent 28%),
+    radial-gradient(circle at 4% 6%, rgba(255, 46, 114, 0.38), transparent 31%),
+    radial-gradient(circle at 14% 12%, rgba(223, 40, 201, 0.3), transparent 30%),
+    radial-gradient(circle at 25% 18%, rgba(123, 44, 255, 0.24), transparent 28%),
     radial-gradient(circle at 84% 86%, rgba(24, 72, 255, 0.42), transparent 34%),
-    radial-gradient(circle at 74% 78%, rgba(223, 40, 201, 0.16), transparent 30%);
-  animation: heroDriftPrimary 19s ease-in-out infinite alternate;
+    radial-gradient(circle at 74% 78%, rgba(223, 40, 201, 0.2), transparent 30%);
+  animation: heroDriftPrimary 16s ease-in-out infinite alternate;
 }
 
 .hero-glow.secondary {
@@ -359,9 +361,9 @@ nav a:hover::after {
     radial-gradient(circle at 20% 88%, rgba(123, 44, 255, 0.18), transparent 30%),
     radial-gradient(circle at 92% 52%, rgba(39, 182, 255, 0.18), transparent 26%),
     radial-gradient(circle at 48% 4%, rgba(180, 86, 255, 0.18), transparent 32%),
-    radial-gradient(circle at 5% 40%, rgba(255, 46, 114, 0.12), transparent 28%);
+    radial-gradient(circle at 4% 38%, rgba(255, 46, 114, 0.2), transparent 28%);
   mix-blend-mode: multiply;
-  animation: heroDriftSecondary 24s ease-in-out infinite alternate;
+  animation: heroDriftSecondary 20s ease-in-out infinite alternate;
 }
 
 .hero-pattern {
@@ -383,28 +385,32 @@ nav a:hover::after {
 
 .hero-symbols span {
   position: absolute;
-  color: rgba(123, 44, 255, 0.46);
-  font-size: clamp(1.2rem, 2vw, 2.3rem);
+  color: rgba(123, 44, 255, 0.58);
+  font-size: clamp(1.3rem, 2.2vw, 2.55rem);
   font-weight: 700;
   line-height: 1;
-  text-shadow: 0 10px 28px rgba(123, 44, 255, 0.12);
-  animation: symbolFloat 12s ease-in-out infinite alternate;
+  text-shadow: 0 10px 28px rgba(123, 44, 255, 0.2);
+  animation: symbolFloat 7.5s ease-in-out infinite alternate;
 }
 
 .hero-symbols span:nth-child(1) {
-  top: 11%;
-  left: 3%;
+  top: 8%;
+  left: 4%;
+  color: rgba(255, 46, 114, 0.62);
+  animation-name: symbolPulseFloat;
 }
 
 .hero-symbols span:nth-child(2) {
-  top: 58%;
-  left: 7%;
+  top: 48%;
+  left: 8%;
+  color: rgba(223, 40, 201, 0.54);
   animation-delay: -3s;
 }
 
 .hero-symbols span:nth-child(3) {
   top: 13%;
   right: 8%;
+  color: rgba(123, 44, 255, 0.48);
   animation-delay: -5s;
 }
 
@@ -412,6 +418,7 @@ nav a:hover::after {
   right: 6%;
   bottom: 30%;
   color: rgba(39, 182, 255, 0.56);
+  animation-name: symbolPulseFloat;
   animation-delay: -7s;
 }
 
@@ -425,12 +432,15 @@ nav a:hover::after {
 .hero-symbols span:nth-child(6) {
   left: 29%;
   bottom: 14%;
+  color: rgba(180, 86, 255, 0.52);
   animation-delay: -9s;
 }
 
 .hero-symbols span:nth-child(7) {
   left: 10%;
   bottom: 16%;
+  color: rgba(123, 44, 255, 0.56);
+  animation-name: symbolPulseFloat;
   animation-delay: -2s;
 }
 
@@ -1598,12 +1608,27 @@ h3 {
 
 @keyframes symbolFloat {
   0% {
-    transform: translate3d(0, 0, 0);
-    opacity: 0.58;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    opacity: 0.62;
   }
   100% {
-    transform: translate3d(8px, -10px, 0);
-    opacity: 0.86;
+    transform: translate3d(14px, -16px, 0) rotate(8deg) scale(1.08);
+    opacity: 0.92;
+  }
+}
+
+@keyframes symbolPulseFloat {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-4deg) scale(0.96);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(8px, -9px, 0) rotate(5deg) scale(1.16);
+    opacity: 0.94;
+  }
+  100% {
+    transform: translate3d(16px, -18px, 0) rotate(11deg) scale(1.04);
+    opacity: 0.78;
   }
 }
 
