@@ -320,8 +320,8 @@ function HomePage({ navigate }) {
             src="/optimized/hero.webp"
             alt=""
             className="hero-image"
-            width="1717"
-            height="916"
+            width="1672"
+            height="941"
             fetchPriority="high"
             decoding="sync"
           />

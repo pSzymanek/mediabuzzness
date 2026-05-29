@@ -336,7 +336,7 @@ nav a:hover::after {
 
 .hero-image {
   object-fit: cover;
-  object-position: center center;
+  object-position: 58% center;
 }
 
 .hero-scrim {
@@ -1556,7 +1556,7 @@ h3 {
   }
 
   .hero-image {
-    object-position: 62% center;
+    object-position: 55% center;
   }
 
   .hero-scrim {
