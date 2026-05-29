@@ -1405,6 +1405,16 @@ h3 {
   font-weight: 680;
 }
 
+.footer-whatsapp {
+  gap: 8px;
+}
+
+.footer-whatsapp img {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
 .footer-links a {
   color: rgba(255, 255, 255, 0.56);
   font-size: 0.9rem;

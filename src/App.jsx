@@ -749,10 +749,12 @@ function Footer({ compact = false, navigate }) {
         <div className="footer-contact">
           <a
             href="https://wa.me/48512782456"
+            className="footer-whatsapp"
             target="_blank"
             rel="noreferrer"
           >
-            WhatsApp: 512 782 456
+            <img src="/brand/whatsapp-icon.svg" alt="" width="16" height="16" />
+            Napisz na WhatsApp
           </a>
           <a href="mailto:kontakt@mediabuzzness.pl">kontakt@mediabuzzness.pl</a>
         </div>
