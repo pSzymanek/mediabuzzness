@@ -318,11 +318,17 @@ nav a:hover::after {
   min-height: 94vh;
   padding: 132px max(24px, calc((100vw - 1120px) / 2)) 84px;
   align-items: end;
-  background: #f8f9fb;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 5% 0%, rgba(223, 40, 201, 0.34), transparent 30%),
+    radial-gradient(circle at 92% 88%, rgba(24, 72, 255, 0.42), transparent 34%),
+    radial-gradient(circle at 82% 72%, rgba(39, 182, 255, 0.2), transparent 30%),
+    linear-gradient(120deg, #fff 0%, #f8fbff 48%, #fff 100%);
 }
 
-.hero-media,
-.hero-image,
+.hero-glow,
+.hero-pattern,
+.hero-symbols,
 .hero-scrim {
   position: absolute;
   inset: 0;
@@ -330,20 +336,112 @@ nav a:hover::after {
   height: 100%;
 }
 
-.hero-media {
-  display: block;
+.hero-glow {
+  inset: -18%;
+  width: auto;
+  height: auto;
+  pointer-events: none;
+  will-change: transform;
 }
 
-.hero-image {
-  object-fit: cover;
-  object-position: 58% center;
+.hero-glow.primary {
+  background:
+    radial-gradient(circle at 12% 14%, rgba(223, 40, 201, 0.2), transparent 30%),
+    radial-gradient(circle at 84% 86%, rgba(24, 72, 255, 0.34), transparent 34%),
+    radial-gradient(circle at 72% 82%, rgba(39, 182, 255, 0.18), transparent 32%);
+  animation: heroDriftPrimary 19s ease-in-out infinite alternate;
+}
+
+.hero-glow.secondary {
+  background:
+    radial-gradient(circle at 24% 92%, rgba(123, 44, 255, 0.12), transparent 28%),
+    radial-gradient(circle at 96% 48%, rgba(39, 182, 255, 0.16), transparent 26%),
+    radial-gradient(circle at 46% 8%, rgba(180, 86, 255, 0.11), transparent 30%);
+  mix-blend-mode: multiply;
+  animation: heroDriftSecondary 24s ease-in-out infinite alternate;
+}
+
+.hero-pattern {
+  opacity: 0.15;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(123, 44, 255, 0.2) 1px, transparent 0),
+    repeating-linear-gradient(135deg, rgba(24, 72, 255, 0.035) 0 1px, transparent 1px 10px);
+  background-size: 30px 30px, 18px 18px;
+  mask-image: linear-gradient(110deg, rgba(0, 0, 0, 0.5), transparent 68%);
+}
+
+.hero-symbols {
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-symbols span {
+  position: absolute;
+  color: rgba(123, 44, 255, 0.28);
+  font-size: clamp(1.1rem, 1.8vw, 2rem);
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 8px 26px rgba(24, 72, 255, 0.08);
+  animation: symbolFloat 12s ease-in-out infinite alternate;
+}
+
+.hero-symbols span:nth-child(1) {
+  top: 11%;
+  left: 3%;
+}
+
+.hero-symbols span:nth-child(2) {
+  top: 58%;
+  left: 7%;
+  animation-delay: -3s;
+}
+
+.hero-symbols span:nth-child(3) {
+  top: 13%;
+  right: 8%;
+  animation-delay: -5s;
+}
+
+.hero-symbols span:nth-child(4) {
+  right: 6%;
+  bottom: 30%;
+  color: rgba(39, 182, 255, 0.42);
+  animation-delay: -7s;
+}
+
+.hero-symbols span:nth-child(5) {
+  left: 50%;
+  bottom: 10%;
+  color: rgba(39, 182, 255, 0.35);
+  animation-delay: -4s;
+}
+
+.hero-symbols span:nth-child(6) {
+  left: 29%;
+  bottom: 14%;
+  animation-delay: -9s;
+}
+
+.hero-symbols span:nth-child(7) {
+  left: 10%;
+  bottom: 16%;
+  animation-delay: -2s;
+}
+
+.hero-symbols span:nth-child(8) {
+  right: 15%;
+  bottom: 24%;
+  color: rgba(255, 255, 255, 0.74);
+  animation-delay: -6s;
 }
 
 .hero-scrim {
+  z-index: 1;
   background:
-    radial-gradient(circle at 18% 72%, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.58) 34%, rgba(255, 255, 255, 0.12) 62%),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.74) 30%, rgba(255, 255, 255, 0.12) 74%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 52%, #fff 100%);
+    radial-gradient(circle at 18% 72%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.64) 34%, rgba(255, 255, 255, 0.16) 62%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.76) 31%, rgba(255, 255, 255, 0.14) 74%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 52%, #fff 100%);
 }
 
 .hero-content {
@@ -1475,6 +1573,35 @@ h3 {
   }
 }
 
+@keyframes heroDriftPrimary {
+  0% {
+    transform: translate3d(-1.6%, -1%, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(1.8%, 1.2%, 0) scale(1.045);
+  }
+}
+
+@keyframes heroDriftSecondary {
+  0% {
+    transform: translate3d(1.2%, -1.4%, 0) scale(1.02);
+  }
+  100% {
+    transform: translate3d(-1.4%, 1.6%, 0) scale(1.06);
+  }
+}
+
+@keyframes symbolFloat {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.58;
+  }
+  100% {
+    transform: translate3d(8px, -10px, 0);
+    opacity: 0.86;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1488,6 +1615,11 @@ h3 {
   [data-reveal] {
     opacity: 1;
     transform: none;
+  }
+
+  .hero-glow,
+  .hero-symbols span {
+    animation: none;
   }
 }
 
@@ -1553,10 +1685,6 @@ h3 {
     min-height: 760px;
     padding-top: 116px;
     padding-bottom: 112px;
-  }
-
-  .hero-image {
-    object-position: 55% center;
   }
 
   .hero-scrim {

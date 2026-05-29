@@ -313,19 +313,19 @@ function HomePage({ navigate }) {
   return (
     <>
       <section className="hero" id="top">
-        <picture className="hero-media">
-          <source srcSet="/optimized/hero.avif" type="image/avif" />
-          <source srcSet="/optimized/hero.webp" type="image/webp" />
-          <img
-            src="/optimized/hero.webp"
-            alt=""
-            className="hero-image"
-            width="1672"
-            height="941"
-            fetchPriority="high"
-            decoding="sync"
-          />
-        </picture>
+        <div className="hero-glow primary" aria-hidden="true" />
+        <div className="hero-glow secondary" aria-hidden="true" />
+        <div className="hero-pattern" aria-hidden="true" />
+        <div className="hero-symbols" aria-hidden="true">
+          <span>+</span>
+          <span>⌁</span>
+          <span>◎</span>
+          <span>↗</span>
+          <span>✦</span>
+          <span>▦</span>
+          <span>◷</span>
+          <span>⌖</span>
+        </div>
         <div className="hero-scrim" />
         <div className="hero-content">
           <div className="eyebrow">
