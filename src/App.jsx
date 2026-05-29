@@ -54,6 +54,19 @@ const stats = [
   ["100%", "Komunikacji dopasowanej do branży i celu"],
 ];
 
+const heroSymbols = [
+  Sparkles,
+  BarChart3,
+  Target,
+  ArrowRight,
+  Sparkles,
+  Layers3,
+  Globe2,
+  Megaphone,
+  MousePointer2,
+  BarChart3,
+];
+
 function App() {
   const [path, setPath] = useState(() => window.location.pathname);
   const isContactPage = path === "/kontakt";
@@ -310,6 +323,19 @@ function ContactNudge({ isVisible, hasCookieBanner, onClose, navigate }) {
 }
 
 function HomePage({ navigate }) {
+  const [activeHeroSymbol, setActiveHeroSymbol] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveHeroSymbol((previous) => {
+        const next = Math.floor(Math.random() * heroSymbols.length);
+        return next === previous ? (next + 1) % heroSymbols.length : next;
+      });
+    }, 3200);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
   return (
     <>
       <section className="hero" id="top">
@@ -317,25 +343,25 @@ function HomePage({ navigate }) {
         <div className="hero-glow secondary" aria-hidden="true" />
         <div className="hero-pattern" aria-hidden="true" />
         <div className="hero-symbols" aria-hidden="true">
-          <span><Sparkles size={40} /></span>
-          <span><BarChart3 size={40} /></span>
-          <span><Target size={40} /></span>
-          <span><ArrowRight size={40} /></span>
-          <span><Sparkles size={40} /></span>
-          <span><Layers3 size={40} /></span>
-          <span><Globe2 size={40} /></span>
-          <span><Megaphone size={40} /></span>
-          <span><MousePointer2 size={40} /></span>
-          <span><BarChart3 size={40} /></span>
+          {heroSymbols.map((Icon, index) => (
+            <span
+              key={`${Icon.displayName || Icon.name}-${index}`}
+              className={activeHeroSymbol === index ? "is-hopping" : undefined}
+            >
+              <Icon size={40} />
+            </span>
+          ))}
         </div>
         <div className="hero-scrim" />
         <div className="hero-content">
-          <div className="eyebrow">
-            <Sparkles size={16} aria-hidden="true" />
-            Widoczność firm w internecie
-          </div>
-          <h1 className="hero-title" data-text="MediaBuzzness">
-            MediaBuzzness
+          <h1 className="hero-logo-title">
+            <img
+              className="hero-logo"
+              src="/brand/logo-full.svg"
+              alt="MediaBuzzness - Widoczność, która pracuje na Twój biznes"
+              width="1431"
+              height="240"
+            />
           </h1>
           <p>
             Projektujemy i prowadzimy obecność Twojej firmy online: od strony
