@@ -320,15 +320,31 @@ nav a:hover::after {
   align-items: end;
   overflow: hidden;
   background:
-    radial-gradient(circle at -8% -8%, rgba(255, 124, 82, 0.92), transparent 30%),
-    radial-gradient(circle at -2% 10%, rgba(255, 46, 114, 0.98), transparent 35%),
-    radial-gradient(circle at 10% 12%, rgba(223, 40, 201, 0.88), transparent 38%),
-    radial-gradient(circle at 25% 16%, rgba(123, 44, 255, 0.58), transparent 40%),
-    radial-gradient(circle at 2% 48%, rgba(255, 95, 168, 0.5), transparent 32%),
-    radial-gradient(circle at 35% 58%, rgba(255, 124, 82, 0.22), transparent 34%),
-    radial-gradient(circle at 88% 84%, rgba(24, 72, 255, 0.5), transparent 34%),
-    radial-gradient(circle at 76% 76%, rgba(223, 40, 201, 0.24), transparent 30%),
+    radial-gradient(ellipse 520px 340px at 10% 2%, rgba(255, 124, 82, 0.96), transparent 70%),
+    radial-gradient(ellipse 760px 520px at 16% 12%, rgba(255, 46, 114, 0.88), transparent 68%),
+    radial-gradient(ellipse 680px 480px at 28% 17%, rgba(223, 40, 201, 0.66), transparent 72%),
+    radial-gradient(ellipse 620px 430px at 5% 42%, rgba(255, 95, 168, 0.46), transparent 70%),
+    radial-gradient(ellipse 580px 420px at 38% 54%, rgba(255, 124, 82, 0.24), transparent 72%),
+    radial-gradient(ellipse 900px 660px at 82% 74%, rgba(24, 72, 255, 0.42), transparent 68%),
+    radial-gradient(ellipse 720px 520px at 73% 67%, rgba(123, 44, 255, 0.26), transparent 70%),
     linear-gradient(120deg, #fff 0%, #fbf8ff 45%, #f7fbff 100%);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.52;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(255, 46, 114, 0.18) 0.7px, transparent 1.2px),
+    radial-gradient(circle at 2px 1px, rgba(255, 124, 82, 0.13) 0.6px, transparent 1.1px),
+    radial-gradient(circle at 1px 2px, rgba(123, 44, 255, 0.14) 0.6px, transparent 1.15px),
+    repeating-radial-gradient(circle at 30% 30%, rgba(16, 24, 40, 0.04) 0 1px, transparent 1px 4px);
+  background-size: 19px 19px, 27px 27px, 15px 15px, 7px 7px;
+  mask-image: linear-gradient(115deg, rgba(0, 0, 0, 0.84), rgba(0, 0, 0, 0.22) 75%);
+  mix-blend-mode: multiply;
 }
 
 .hero-glow,
@@ -342,7 +358,7 @@ nav a:hover::after {
 }
 
 .hero-glow {
-  inset: -18%;
+  inset: 0;
   width: auto;
   height: auto;
   pointer-events: none;
@@ -352,36 +368,35 @@ nav a:hover::after {
 
 .hero-glow.primary {
   background:
-    radial-gradient(circle at -2% 0%, rgba(255, 124, 82, 0.78), transparent 32%),
-    radial-gradient(circle at 4% 8%, rgba(255, 46, 114, 0.9), transparent 35%),
-    radial-gradient(circle at 15% 15%, rgba(223, 40, 201, 0.72), transparent 34%),
-    radial-gradient(circle at 30% 20%, rgba(123, 44, 255, 0.34), transparent 32%),
-    radial-gradient(circle at 84% 86%, rgba(24, 72, 255, 0.42), transparent 34%),
-    radial-gradient(circle at 74% 78%, rgba(223, 40, 201, 0.2), transparent 30%);
+    radial-gradient(ellipse 460px 300px at 7% 5%, rgba(255, 124, 82, 0.78), transparent 72%),
+    radial-gradient(ellipse 620px 430px at 14% 13%, rgba(255, 46, 114, 0.82), transparent 70%),
+    radial-gradient(ellipse 560px 390px at 27% 20%, rgba(223, 40, 201, 0.56), transparent 70%),
+    radial-gradient(ellipse 520px 360px at 3% 50%, rgba(255, 95, 168, 0.34), transparent 74%),
+    radial-gradient(ellipse 820px 600px at 86% 82%, rgba(24, 72, 255, 0.36), transparent 70%);
   animation: heroDriftPrimary 16s ease-in-out infinite alternate;
 }
 
 .hero-glow.secondary {
   background:
-    radial-gradient(circle at 20% 88%, rgba(123, 44, 255, 0.18), transparent 30%),
-    radial-gradient(circle at 92% 52%, rgba(39, 182, 255, 0.18), transparent 26%),
-    radial-gradient(circle at 48% 4%, rgba(180, 86, 255, 0.18), transparent 32%),
-    radial-gradient(circle at 4% 38%, rgba(255, 46, 114, 0.48), transparent 30%),
-    radial-gradient(circle at 12% 2%, rgba(255, 111, 124, 0.42), transparent 28%);
+    radial-gradient(ellipse 520px 340px at 18% 84%, rgba(123, 44, 255, 0.18), transparent 72%),
+    radial-gradient(ellipse 560px 360px at 92% 52%, rgba(39, 182, 255, 0.16), transparent 70%),
+    radial-gradient(ellipse 500px 320px at 44% 6%, rgba(180, 86, 255, 0.16), transparent 72%),
+    radial-gradient(ellipse 470px 310px at 7% 34%, rgba(255, 46, 114, 0.34), transparent 72%),
+    radial-gradient(ellipse 430px 280px at 20% 4%, rgba(255, 111, 124, 0.32), transparent 72%);
   mix-blend-mode: multiply;
   animation: heroDriftSecondary 20s ease-in-out infinite alternate;
 }
 
 .hero-pattern {
-  opacity: 0.34;
+  opacity: 0.48;
   pointer-events: none;
   background-image:
-    radial-gradient(circle at 1px 1px, rgba(123, 44, 255, 0.26) 0.8px, transparent 1.2px),
-    radial-gradient(circle at 2px 2px, rgba(223, 40, 201, 0.18) 0.7px, transparent 1.1px),
-    radial-gradient(circle at 2px 1px, rgba(255, 111, 124, 0.11) 0.6px, transparent 1.1px),
-    repeating-radial-gradient(circle at 20% 20%, rgba(24, 72, 255, 0.055) 0 1px, transparent 1px 5px);
-  background-size: 23px 23px, 17px 17px, 29px 29px, 9px 9px;
-  mask-image: linear-gradient(112deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.2) 68%);
+    radial-gradient(circle at 1px 1px, rgba(123, 44, 255, 0.3) 0.8px, transparent 1.2px),
+    radial-gradient(circle at 2px 2px, rgba(223, 40, 201, 0.26) 0.7px, transparent 1.1px),
+    radial-gradient(circle at 2px 1px, rgba(255, 111, 124, 0.2) 0.6px, transparent 1.1px),
+    repeating-radial-gradient(circle at 20% 20%, rgba(24, 72, 255, 0.075) 0 1px, transparent 1px 5px);
+  background-size: 21px 21px, 15px 15px, 25px 25px, 8px 8px;
+  mask-image: linear-gradient(112deg, rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.28) 72%);
   mix-blend-mode: multiply;
 }
 
@@ -476,8 +491,8 @@ nav a:hover::after {
 .hero-scrim {
   z-index: 1;
   background:
-    radial-gradient(circle at 25% 70%, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.78) 27%, rgba(255, 255, 255, 0.22) 52%, transparent 66%),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.58) 24%, rgba(255, 255, 255, 0.1) 74%),
+    radial-gradient(circle at 25% 70%, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.72) 27%, rgba(255, 255, 255, 0.18) 52%, transparent 66%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.5) 24%, rgba(255, 255, 255, 0.08) 74%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 52%, #fff 100%);
 }
 
