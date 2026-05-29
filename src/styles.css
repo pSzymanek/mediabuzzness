@@ -320,11 +320,11 @@ nav a:hover::after {
   align-items: end;
   overflow: hidden;
   background:
-    radial-gradient(circle at -4% -2%, rgba(255, 124, 82, 0.42), transparent 28%),
-    radial-gradient(circle at 0% 0%, rgba(255, 46, 114, 0.74), transparent 31%),
-    radial-gradient(circle at 10% 9%, rgba(223, 40, 201, 0.62), transparent 34%),
-    radial-gradient(circle at 24% 13%, rgba(123, 44, 255, 0.42), transparent 36%),
-    radial-gradient(circle at 2% 46%, rgba(255, 95, 168, 0.2), transparent 28%),
+    radial-gradient(circle at -4% -2%, rgba(255, 124, 82, 0.66), transparent 30%),
+    radial-gradient(circle at 2% 6%, rgba(255, 46, 114, 0.84), transparent 34%),
+    radial-gradient(circle at 13% 12%, rgba(223, 40, 201, 0.72), transparent 36%),
+    radial-gradient(circle at 27% 16%, rgba(123, 44, 255, 0.5), transparent 38%),
+    radial-gradient(circle at 4% 48%, rgba(255, 95, 168, 0.3), transparent 30%),
     radial-gradient(circle at 88% 84%, rgba(24, 72, 255, 0.5), transparent 34%),
     radial-gradient(circle at 76% 76%, rgba(223, 40, 201, 0.24), transparent 30%),
     linear-gradient(120deg, #fff 0%, #fbf8ff 45%, #f7fbff 100%);
@@ -350,10 +350,10 @@ nav a:hover::after {
 
 .hero-glow.primary {
   background:
-    radial-gradient(circle at 0% 4%, rgba(255, 124, 82, 0.34), transparent 30%),
-    radial-gradient(circle at 5% 7%, rgba(255, 46, 114, 0.48), transparent 32%),
-    radial-gradient(circle at 15% 13%, rgba(223, 40, 201, 0.42), transparent 31%),
-    radial-gradient(circle at 27% 18%, rgba(123, 44, 255, 0.28), transparent 30%),
+    radial-gradient(circle at 0% 4%, rgba(255, 124, 82, 0.52), transparent 32%),
+    radial-gradient(circle at 7% 8%, rgba(255, 46, 114, 0.62), transparent 34%),
+    radial-gradient(circle at 17% 15%, rgba(223, 40, 201, 0.52), transparent 33%),
+    radial-gradient(circle at 30% 20%, rgba(123, 44, 255, 0.34), transparent 32%),
     radial-gradient(circle at 84% 86%, rgba(24, 72, 255, 0.42), transparent 34%),
     radial-gradient(circle at 74% 78%, rgba(223, 40, 201, 0.2), transparent 30%);
   animation: heroDriftPrimary 16s ease-in-out infinite alternate;
@@ -390,39 +390,40 @@ nav a:hover::after {
 
 .hero-symbols span {
   position: absolute;
-  color: rgba(123, 44, 255, 0.58);
-  font-size: clamp(1.3rem, 2.2vw, 2.55rem);
-  font-weight: 700;
-  line-height: 1;
-  text-shadow: 0 10px 28px rgba(123, 44, 255, 0.2);
+  width: clamp(22px, 2.6vw, 42px);
+  aspect-ratio: 1;
+  background: rgba(123, 44, 255, 0.64);
+  filter: drop-shadow(0 12px 28px rgba(123, 44, 255, 0.18));
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
   animation: symbolFloat 7.5s ease-in-out infinite alternate;
 }
 
 .hero-symbols span:nth-child(1) {
   top: 8%;
   left: 4%;
-  color: rgba(255, 46, 114, 0.62);
+  background: rgba(255, 46, 114, 0.78);
   animation-name: symbolPulseFloat;
 }
 
 .hero-symbols span:nth-child(2) {
   top: 48%;
   left: 8%;
-  color: rgba(223, 40, 201, 0.54);
+  background: rgba(223, 40, 201, 0.68);
   animation-delay: -3s;
 }
 
 .hero-symbols span:nth-child(3) {
   top: 13%;
   right: 8%;
-  color: rgba(123, 44, 255, 0.48);
+  background: rgba(123, 44, 255, 0.54);
   animation-delay: -5s;
 }
 
 .hero-symbols span:nth-child(4) {
   right: 6%;
   bottom: 30%;
-  color: rgba(39, 182, 255, 0.56);
+  background: rgba(39, 182, 255, 0.62);
   animation-name: symbolPulseFloat;
   animation-delay: -7s;
 }
@@ -430,21 +431,21 @@ nav a:hover::after {
 .hero-symbols span:nth-child(5) {
   left: 50%;
   bottom: 10%;
-  color: rgba(39, 182, 255, 0.5);
+  background: rgba(39, 182, 255, 0.58);
   animation-delay: -4s;
 }
 
 .hero-symbols span:nth-child(6) {
   left: 29%;
   bottom: 14%;
-  color: rgba(180, 86, 255, 0.52);
+  background: rgba(180, 86, 255, 0.62);
   animation-delay: -9s;
 }
 
 .hero-symbols span:nth-child(7) {
   left: 10%;
   bottom: 16%;
-  color: rgba(123, 44, 255, 0.56);
+  background: rgba(123, 44, 255, 0.66);
   animation-name: symbolPulseFloat;
   animation-delay: -2s;
 }
@@ -452,16 +453,30 @@ nav a:hover::after {
 .hero-symbols span:nth-child(8) {
   right: 15%;
   bottom: 24%;
-  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.92);
   animation-delay: -6s;
+}
+
+.hero-symbols span:nth-child(9) {
+  top: 22%;
+  left: 17%;
+  background: rgba(255, 255, 255, 0.82);
+  animation-delay: -5.5s;
+}
+
+.hero-symbols span:nth-child(10) {
+  top: 17%;
+  right: 30%;
+  background: rgba(123, 44, 255, 0.48);
+  animation-delay: -8s;
 }
 
 .hero-scrim {
   z-index: 1;
   background:
-    radial-gradient(circle at 18% 72%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.64) 34%, rgba(255, 255, 255, 0.16) 62%),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.76) 31%, rgba(255, 255, 255, 0.14) 74%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 52%, #fff 100%);
+    radial-gradient(circle at 25% 70%, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.78) 27%, rgba(255, 255, 255, 0.22) 52%, transparent 66%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.54) 0%, rgba(255, 255, 255, 0.72) 24%, rgba(255, 255, 255, 0.12) 74%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 52%, #fff 100%);
 }
 
 .hero-content {
@@ -1613,26 +1628,26 @@ h3 {
 
 @keyframes symbolFloat {
   0% {
-    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
     opacity: 0.62;
   }
   100% {
-    transform: translate3d(14px, -16px, 0) rotate(8deg) scale(1.08);
+    transform: translate3d(14px, -16px, 0) scale(1.1);
     opacity: 0.92;
   }
 }
 
 @keyframes symbolPulseFloat {
   0% {
-    transform: translate3d(0, 0, 0) rotate(-4deg) scale(0.96);
+    transform: translate3d(0, 0, 0) scale(0.96);
     opacity: 0.55;
   }
   50% {
-    transform: translate3d(8px, -9px, 0) rotate(5deg) scale(1.16);
+    transform: translate3d(8px, -9px, 0) scale(1.18);
     opacity: 0.94;
   }
   100% {
-    transform: translate3d(16px, -18px, 0) rotate(11deg) scale(1.04);
+    transform: translate3d(16px, -18px, 0) scale(1.06);
     opacity: 0.78;
   }
 }

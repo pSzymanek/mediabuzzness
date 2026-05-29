@@ -317,14 +317,16 @@ function HomePage({ navigate }) {
         <div className="hero-glow secondary" aria-hidden="true" />
         <div className="hero-pattern" aria-hidden="true" />
         <div className="hero-symbols" aria-hidden="true">
-          <span>+</span>
-          <span>⌁</span>
-          <span>◎</span>
-          <span>↗</span>
-          <span>✦</span>
-          <span>▦</span>
-          <span>◷</span>
-          <span>⌖</span>
+          <span style={{ "--icon": "url('/icons/spark.svg')" }} />
+          <span style={{ "--icon": "url('/icons/chart-growth.svg')" }} />
+          <span style={{ "--icon": "url('/icons/target.svg')" }} />
+          <span style={{ "--icon": "url('/icons/arrow-up-right.svg')" }} />
+          <span style={{ "--icon": "url('/icons/spark.svg')" }} />
+          <span style={{ "--icon": "url('/icons/grid-dots.svg')" }} />
+          <span style={{ "--icon": "url('/icons/pie-chart.svg')" }} />
+          <span style={{ "--icon": "url('/icons/megaphone.svg')" }} />
+          <span style={{ "--icon": "url('/icons/users.svg')" }} />
+          <span style={{ "--icon": "url('/icons/bar-chart.svg')" }} />
         </div>
         <div className="hero-scrim" />
         <div className="hero-content">
