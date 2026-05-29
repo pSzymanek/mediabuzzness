@@ -1299,7 +1299,7 @@ h3 {
   color: var(--brand-purple);
 }
 
-.contact-detail-card span {
+.contact-detail-card > span {
   color: var(--muted);
   font-size: 0.78rem;
   font-weight: 850;
@@ -1318,19 +1318,27 @@ h3 {
 }
 
 .contact-whatsapp-link {
-  display: inline-flex;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 34px 1fr;
   align-items: center;
-  position: relative;
+  gap: 14px;
 }
 
-.contact-whatsapp-link img {
-  position: absolute;
-  top: 50%;
-  left: -26px;
+.contact-whatsapp-icon {
+  display: grid;
+  place-items: center;
+}
+
+.contact-whatsapp-icon img {
   width: 18px;
   height: 18px;
   flex: 0 0 auto;
-  transform: translateY(-50%);
+}
+
+.contact-whatsapp-text {
+  color: inherit;
+  font: inherit;
 }
 
 .site-footer {

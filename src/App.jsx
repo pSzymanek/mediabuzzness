@@ -631,8 +631,10 @@ function ContactPage({ navigate }) {
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src="/brand/whatsapp-icon.svg" alt="" width="16" height="16" />
-                Napisz na WhatsApp
+                <span className="contact-whatsapp-icon">
+                  <img src="/brand/whatsapp-icon.svg" alt="" width="16" height="16" />
+                </span>
+                <span className="contact-whatsapp-text">Napisz na WhatsApp</span>
               </a>
             </div>
             <div className="contact-detail-card">
