@@ -320,13 +320,13 @@ nav a:hover::after {
   align-items: end;
   overflow: hidden;
   background:
-    radial-gradient(ellipse 520px 340px at 10% 2%, rgba(255, 124, 82, 0.96), transparent 70%),
-    radial-gradient(ellipse 760px 520px at 16% 12%, rgba(255, 46, 114, 0.88), transparent 68%),
-    radial-gradient(ellipse 680px 480px at 28% 17%, rgba(223, 40, 201, 0.66), transparent 72%),
-    radial-gradient(ellipse 620px 430px at 5% 42%, rgba(255, 95, 168, 0.46), transparent 70%),
-    radial-gradient(ellipse 580px 420px at 38% 54%, rgba(255, 124, 82, 0.24), transparent 72%),
-    radial-gradient(ellipse 900px 660px at 82% 74%, rgba(24, 72, 255, 0.42), transparent 68%),
-    radial-gradient(ellipse 720px 520px at 73% 67%, rgba(123, 44, 255, 0.26), transparent 70%),
+    radial-gradient(ellipse clamp(520px, 34vw, 860px) clamp(340px, 23vw, 580px) at 10% 2%, rgba(255, 124, 82, 0.98), transparent 70%),
+    radial-gradient(ellipse clamp(760px, 52vw, 1180px) clamp(520px, 36vw, 820px) at 16% 12%, rgba(255, 46, 114, 0.92), transparent 68%),
+    radial-gradient(ellipse clamp(680px, 45vw, 1060px) clamp(480px, 32vw, 760px) at 28% 17%, rgba(223, 40, 201, 0.7), transparent 72%),
+    radial-gradient(ellipse clamp(620px, 40vw, 960px) clamp(430px, 28vw, 680px) at 5% 42%, rgba(255, 95, 168, 0.5), transparent 70%),
+    radial-gradient(ellipse clamp(580px, 38vw, 900px) clamp(420px, 27vw, 650px) at 38% 54%, rgba(255, 124, 82, 0.28), transparent 72%),
+    radial-gradient(ellipse clamp(900px, 58vw, 1320px) clamp(660px, 42vw, 980px) at 82% 74%, rgba(24, 72, 255, 0.42), transparent 68%),
+    radial-gradient(ellipse clamp(720px, 48vw, 1120px) clamp(520px, 34vw, 800px) at 73% 67%, rgba(123, 44, 255, 0.28), transparent 70%),
     linear-gradient(120deg, #fff 0%, #fbf8ff 45%, #f7fbff 100%);
 }
 
@@ -336,11 +336,11 @@ nav a:hover::after {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.52;
+  opacity: 0.62;
   background-image:
-    radial-gradient(circle at 1px 1px, rgba(255, 46, 114, 0.18) 0.7px, transparent 1.2px),
-    radial-gradient(circle at 2px 1px, rgba(255, 124, 82, 0.13) 0.6px, transparent 1.1px),
-    radial-gradient(circle at 1px 2px, rgba(123, 44, 255, 0.14) 0.6px, transparent 1.15px),
+    radial-gradient(circle at 1px 1px, rgba(255, 46, 114, 0.22) 0.7px, transparent 1.2px),
+    radial-gradient(circle at 2px 1px, rgba(255, 124, 82, 0.16) 0.6px, transparent 1.1px),
+    radial-gradient(circle at 1px 2px, rgba(123, 44, 255, 0.17) 0.6px, transparent 1.15px),
     repeating-radial-gradient(circle at 30% 30%, rgba(16, 24, 40, 0.04) 0 1px, transparent 1px 4px);
   background-size: 19px 19px, 27px 27px, 15px 15px, 7px 7px;
   mask-image: linear-gradient(115deg, rgba(0, 0, 0, 0.84), rgba(0, 0, 0, 0.22) 75%);
@@ -368,21 +368,21 @@ nav a:hover::after {
 
 .hero-glow.primary {
   background:
-    radial-gradient(ellipse 460px 300px at 7% 5%, rgba(255, 124, 82, 0.78), transparent 72%),
-    radial-gradient(ellipse 620px 430px at 14% 13%, rgba(255, 46, 114, 0.82), transparent 70%),
-    radial-gradient(ellipse 560px 390px at 27% 20%, rgba(223, 40, 201, 0.56), transparent 70%),
-    radial-gradient(ellipse 520px 360px at 3% 50%, rgba(255, 95, 168, 0.34), transparent 74%),
-    radial-gradient(ellipse 820px 600px at 86% 82%, rgba(24, 72, 255, 0.36), transparent 70%);
+    radial-gradient(ellipse clamp(460px, 31vw, 780px) clamp(300px, 21vw, 520px) at 7% 5%, rgba(255, 124, 82, 0.8), transparent 72%),
+    radial-gradient(ellipse clamp(620px, 43vw, 1040px) clamp(430px, 30vw, 720px) at 14% 13%, rgba(255, 46, 114, 0.86), transparent 70%),
+    radial-gradient(ellipse clamp(560px, 38vw, 940px) clamp(390px, 27vw, 660px) at 27% 20%, rgba(223, 40, 201, 0.6), transparent 70%),
+    radial-gradient(ellipse clamp(520px, 35vw, 860px) clamp(360px, 25vw, 620px) at 3% 50%, rgba(255, 95, 168, 0.38), transparent 74%),
+    radial-gradient(ellipse clamp(820px, 54vw, 1260px) clamp(600px, 39vw, 920px) at 86% 82%, rgba(24, 72, 255, 0.34), transparent 70%);
   animation: heroDriftPrimary 16s ease-in-out infinite alternate;
 }
 
 .hero-glow.secondary {
   background:
-    radial-gradient(ellipse 520px 340px at 18% 84%, rgba(123, 44, 255, 0.18), transparent 72%),
-    radial-gradient(ellipse 560px 360px at 92% 52%, rgba(39, 182, 255, 0.16), transparent 70%),
-    radial-gradient(ellipse 500px 320px at 44% 6%, rgba(180, 86, 255, 0.16), transparent 72%),
-    radial-gradient(ellipse 470px 310px at 7% 34%, rgba(255, 46, 114, 0.34), transparent 72%),
-    radial-gradient(ellipse 430px 280px at 20% 4%, rgba(255, 111, 124, 0.32), transparent 72%);
+    radial-gradient(ellipse clamp(520px, 36vw, 900px) clamp(340px, 24vw, 620px) at 18% 84%, rgba(123, 44, 255, 0.2), transparent 72%),
+    radial-gradient(ellipse clamp(560px, 38vw, 940px) clamp(360px, 25vw, 640px) at 92% 52%, rgba(39, 182, 255, 0.14), transparent 70%),
+    radial-gradient(ellipse clamp(500px, 34vw, 840px) clamp(320px, 22vw, 560px) at 44% 6%, rgba(180, 86, 255, 0.18), transparent 72%),
+    radial-gradient(ellipse clamp(470px, 32vw, 800px) clamp(310px, 22vw, 540px) at 7% 34%, rgba(255, 46, 114, 0.38), transparent 72%),
+    radial-gradient(ellipse clamp(430px, 30vw, 760px) clamp(280px, 20vw, 500px) at 20% 4%, rgba(255, 111, 124, 0.34), transparent 72%);
   mix-blend-mode: multiply;
   animation: heroDriftSecondary 20s ease-in-out infinite alternate;
 }
