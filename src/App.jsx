@@ -124,7 +124,11 @@ function App() {
   };
 
   useEffect(() => {
-    if (isContactPage || window.sessionStorage.getItem("mediabuzzness-contact-nudge")) {
+    if (
+      isContactPage ||
+      isCookieBannerVisible ||
+      window.sessionStorage.getItem("mediabuzzness-contact-nudge")
+    ) {
       setIsContactNudgeVisible(false);
       return undefined;
     }
@@ -152,7 +156,7 @@ function App() {
       window.clearTimeout(hideTimer);
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isContactPage, path]);
+  }, [isContactPage, isCookieBannerVisible, path]);
 
   return (
     <main>
