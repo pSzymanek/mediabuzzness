@@ -58,6 +58,7 @@ const heroSymbols = [
   Sparkles,
   BarChart3,
   Target,
+  ArrowRight,
   Sparkles,
   Layers3,
   Globe2,
