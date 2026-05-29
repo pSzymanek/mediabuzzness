@@ -1317,6 +1317,18 @@ h3 {
   color: var(--brand-purple);
 }
 
+.contact-whatsapp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-whatsapp-link img {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
 .site-footer {
   position: relative;
   display: grid;

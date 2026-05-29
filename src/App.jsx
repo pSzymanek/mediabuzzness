@@ -625,6 +625,15 @@ function ContactPage({ navigate }) {
               <AtSign size={22} aria-hidden="true" />
               <span>Kontakt</span>
               <a href="mailto:kontakt@mediabuzzness.pl">kontakt@mediabuzzness.pl</a>
+              <a
+                className="contact-whatsapp-link"
+                href="https://wa.me/48512782456"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src="/brand/whatsapp-icon.svg" alt="" width="16" height="16" />
+                Napisz na WhatsApp
+              </a>
             </div>
             <div className="contact-detail-card">
               <Mail size={22} aria-hidden="true" />
