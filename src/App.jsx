@@ -63,6 +63,7 @@ function App() {
     return window.localStorage.getItem("mediabuzzness-cookie-consent") !== "accepted";
   });
   const [isContactNudgeVisible, setIsContactNudgeVisible] = useState(false);
+  const [isContactNudgeDelayed, setIsContactNudgeDelayed] = useState(false);
 
   useEffect(() => {
     const elements = document.querySelectorAll("[data-reveal]");
@@ -116,6 +117,7 @@ function App() {
   const acceptCookies = () => {
     window.localStorage.setItem("mediabuzzness-cookie-consent", "accepted");
     setIsCookieBannerVisible(false);
+    setIsContactNudgeDelayed(true);
   };
 
   const closeContactNudge = () => {
@@ -127,6 +129,7 @@ function App() {
     if (
       isContactPage ||
       isCookieBannerVisible ||
+      isContactNudgeDelayed ||
       window.sessionStorage.getItem("mediabuzzness-contact-nudge")
     ) {
       setIsContactNudgeVisible(false);
@@ -156,7 +159,17 @@ function App() {
       window.clearTimeout(hideTimer);
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isContactPage, isCookieBannerVisible, path]);
+  }, [isContactPage, isCookieBannerVisible, isContactNudgeDelayed, path]);
+
+  useEffect(() => {
+    if (!isContactNudgeDelayed) return undefined;
+
+    const delayTimer = window.setTimeout(() => {
+      setIsContactNudgeDelayed(false);
+    }, 5000);
+
+    return () => window.clearTimeout(delayTimer);
+  }, [isContactNudgeDelayed]);
 
   return (
     <main>
