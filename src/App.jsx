@@ -331,7 +331,7 @@ function HomePage({ navigate }) {
         const next = Math.floor(Math.random() * heroSymbols.length);
         return next === previous ? (next + 1) % heroSymbols.length : next;
       });
-    }, 3200);
+    }, 2000);
 
     return () => window.clearInterval(interval);
   }, []);
